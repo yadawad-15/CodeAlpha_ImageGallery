@@ -1,0 +1,380 @@
+
+/* Basic page design */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #fffaf8;
+    color: #49383d;
+}
+
+/* Welcome section */
+.hero {
+    background: linear-gradient(135deg, #f5dfe6, #fff4eb, #eadce9);
+    padding: 25px 7% 65px;
+    min-height: 470px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    color: #994e6b;
+    text-decoration: none;
+    font: bold 25px Georgia, serif;
+}
+
+.logo span {
+    color: #d08aa0;
+}
+
+.nav-link {
+    color: #77465b;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 90px auto 45px;
+    text-align: center;
+}
+
+.small-title {
+    color: #a35f7a;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font: 600 clamp(38px, 6vw, 65px)/1.15 Georgia, serif;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: #a85f7a;
+}
+
+.intro {
+    max-width: 480px;
+    margin: 0 auto 28px;
+    color: #745f65;
+    line-height: 1.8;
+}
+
+.explore-button {
+    display: inline-block;
+    background: #a45e79;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.explore-button:hover {
+    background: #793e57;
+    transform: translateY(-3px);
+}
+
+.hero-note {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #986d7b;
+}
+
+/* Gallery introduction */
+.heading {
+    text-align: center;
+    padding: 65px 20px 25px;
+}
+
+.heading h2 {
+    font: 600 36px Georgia, serif;
+    margin: 10px 0;
+}
+
+.heading > p:last-child {
+    color: #88747b;
+}
+
+/* Category buttons */
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 20px;
+}
+
+.filter-btn {
+    padding: 10px 17px;
+    border: 1px solid #e6cbd5;
+    border-radius: 25px;
+    background: white;
+    color: #805267;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #a45e79;
+    color: white;
+    border-color: #a45e79;
+}
+
+/* Photo count */
+.photo-count {
+    text-align: center;
+    color: #927c84;
+    font-size: 13px;
+    margin: 15px 0;
+}
+
+/* Each fashion category */
+.collection {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 45px 25px 20px;
+    scroll-margin-top: 20px;
+}
+
+.collection-heading {
+    margin-bottom: 25px;
+}
+
+.collection-heading span {
+    color: #ae7188;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.collection-heading h2 {
+    font: 600 30px Georgia, serif;
+    margin: 7px 0;
+}
+
+.collection-heading p {
+    color: #88747b;
+    font-size: 14px;
+}
+
+/* Photo cards */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.photo-card {
+    overflow: hidden;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px #603b3510;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px #603b3520;
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    cursor: pointer;
+    background: #f2e5e9;
+    transition: transform 0.4s;
+}
+
+.photo-card:hover img {
+    transform: scale(1.03);
+}
+
+.photo-card h3 {
+    padding: 15px 12px;
+    font: 600 17px Georgia, serif;
+    color: #91516a;
+}
+
+/* Large photo viewer */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(27, 18, 23, 0.95);
+    align-items: center;
+    justify-content: center;
+    padding: 55px 65px;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 85%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lightbox p {
+    position: absolute;
+    bottom: 15px;
+    color: white;
+    text-align: center;
+}
+
+.close-btn,
+.arrow {
+    position: absolute;
+    color: white;
+    background: #ffffff20;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+}
+
+.close-btn {
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+}
+
+.left-arrow {
+    left: 18px;
+}
+
+.right-arrow {
+    right: 18px;
+}
+
+.close-btn:hover,
+.arrow:hover {
+    background: #b66c87;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 15px;
+    margin-top: 65px;
+    background: #f4e3e8;
+}
+
+footer h2 {
+    font: 600 28px Georgia, serif;
+    color: #994e6b;
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #806872;
+    font-size: 13px;
+}
+
+.footer-note {
+    margin-top: 12px;
+}
+
+/* Tablet */
+@media (max-width: 950px) {
+    .photo-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    .hero {
+        padding: 20px 5% 45px;
+    }
+
+    .hero-content {
+        margin: 70px auto 35px;
+    }
+
+    .heading h2 {
+        font-size: 29px;
+    }
+
+    .collection {
+        padding: 35px 15px 10px;
+    }
+
+    .collection-heading h2 {
+        font-size: 25px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .photo-card img {
+        height: 230px;
+    }
+
+    .photo-card h3 {
+        font-size: 15px;
+        padding: 12px 9px;
+    }
+
+    .lightbox {
+        padding: 50px 35px;
+    }
+
+    .lightbox img {
+        max-width: 100%;
+        max-height: 72vh;
+    }
+
+    .left-arrow {
+        left: 2px;
+    }
+
+    .right-arrow {
+        right: 2px;
+    }
+}
+
+@media (max-width: 380px) {
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-link {
+        font-size: 12px;
+    }
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card img {
+        height: 350px;
+    }
+}
